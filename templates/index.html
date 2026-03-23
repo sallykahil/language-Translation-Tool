@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Language Translator</title>
+    <title>Language Translator - Offline</title>
     <!-- Use <link> for external CSS. <style> has no `src` — browsers won't load your file. -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-    
 </head>
 <body>
   <div class="wrap">
@@ -21,7 +20,7 @@
         <div>
           <label for="source">From</label>
           <select id="source">
-            <option value="auto">Auto-detect</option>
+   
             <option value="en">English</option>
             <option value="ar">Arabic</option>
             <option value="fr">French</option>
@@ -56,6 +55,6 @@
       </div>
     </div>
   </div> 
-<script src="{{ url_for('static', filename='script.js') }}"></script>
+<script src="static/script.js"></script>
 </body>
 </html>
