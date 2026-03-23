@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Language Translator</title>
+    <!-- Use <link> for external CSS. <style> has no `src` — browsers won't load your file. -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    
+</head>
+<body>
+  <div class="wrap">
+    <h1>Language translation</h1>
+    <p class="subtitle">Enter text, choose languages, then translate. Backend: <code>POST /translate</code></p>
+
+    <div class="card">
+      <label for="text">Your text</label>
+      <textarea id="text" placeholder="Type or paste text to translate…" maxlength="5000"></textarea>
+
+      <div class="row">
+        <div>
+          <label for="source">From</label>
+          <select id="source">
+            <option value="auto">Auto-detect</option>
+            <option value="en">English</option>
+            <option value="ar">Arabic</option>
+            <option value="fr">French</option>
+          </select>
+        </div>
+        <div>
+          <label for="target">To</label>
+          <select id="target">
+            <option value="ar">Arabic</option>
+            <option value="en">English</option>
+            <option value="fr">French</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <button type="button" class="btn-primary" id="btn">Translate</button>
+        <button type="button" class="btn-ghost" id="swapBtn" title="Swap languages">⇄ Swap</button>
+        <span class="meta"><span id="charCount">0</span> / 5000</span>
+      </div>
+
+      <div class="result-section">
+        <div class="result-header">
+          <h2>Translation</h2>
+          <div class="result-actions">
+            <button type="button" class="btn-ghost" id="copyBtn" disabled>Copy</button>
+            <button type="button" class="btn-ghost" id="speakBtn" disabled>Speak</button>
+          </div>
+        </div>
+        <div id="result" class="empty">Translation will appear here.</div>
+        <div class="status" id="status" aria-live="polite"></div>
+      </div>
+    </div>
+  </div> 
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
